@@ -20,6 +20,7 @@
       userId: paramObj?.userId,
       apiKey: paramObj?.apiKey,
       assistantId: paramObj?.assistantId,
+      screenWidth: paramObj?.screenWidth,
     },
   };
 
