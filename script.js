@@ -7,7 +7,6 @@
     Array.from(document.getElementsByTagName("script")).pop();
 
   const paramObj = JSON.parse(currentScriptTag.getAttribute("data-params"));
-  // // const param2 = currentScriptTag.getAttribute("data-bg");
 
   console.log(paramObj, "OBJECT");
   const chatbotConfig = {
@@ -16,7 +15,7 @@
     height: "660px",
     position: "bottom-right",
     queryParams: {
-      bgColor: paramObj?.bgColor, // Dynamic value
+      bgColor: paramObj?.bgColor,
       headerTitle: paramObj?.headerTitle || "Chat with us",
       userId: paramObj?.userId,
       apiKey: paramObj?.apiKey,
