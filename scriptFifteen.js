@@ -70,9 +70,9 @@
     );
     if (event.data.status == "active") {
       console.log("Message from chatbot:", event, event.data.message);
-      iframe.style.pointerEvents = "auto";
+      iframe.style.height = chatbotConfig?.height;
     } else if (event.data.status == "inactive") {
-      iframe.style.pointerEvents = "none";
+      iframe.style.height = "200px";
     }
   });
 
