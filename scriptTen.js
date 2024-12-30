@@ -40,7 +40,7 @@
       return; // This line might be the cause if origins do not match.
     }
     console.log(event, "Show Message", event.data, event.data.status);
-    if (event.data.status === "active") {
+    if (event.data.status === "'active'") {
       console.log("Message from chatbot:", event, event.data.message);
     }
   });
