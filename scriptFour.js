@@ -35,6 +35,15 @@
   // function sendClickEventToParent() {
   //   window.parent.postMessage({ type: "chatbotClick", data: "Click event data" }, "*");
   // }
+  window.addEventListener("message", (event) => {
+    if (event.origin !== "https://ainexus-staging.bjitgroup.com/chatapp") {
+      return; // Make sure to restrict by origin
+    }
+    console.log(event, "event");
+    if (event.data.status === "active") {
+      console.log("Message from chatbot:", event, event.data.message);
+    }
+  });
 
   const queryString = new URLSearchParams(chatbotConfig.queryParams).toString();
   const chatbotUrlWithParams = `${chatbotConfig.botUrl}?${queryString}`;
