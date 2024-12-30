@@ -45,7 +45,7 @@
     iframe.style.left = "20px";
   }
   window.addEventListener("message", (event) => {
-    if (event.origin !== "https://ainexus-staging.bjitgroup.com/chatapp") {
+    if (event.origin !== "http://localhost:3090") {
       return; // This line might be the cause if origins do not match.
     }
 
