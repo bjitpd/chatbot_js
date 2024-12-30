@@ -45,9 +45,9 @@
       "Show Message",
       event.data,
       event.data.status,
-      paramObj?.headerTitle
+      typeof event.data.status
     );
-    if (event.data.status === "'active'") {
+    if (event.data.status == "active") {
       console.log("Message from chatbot:", event, event.data.message);
     }
   });
