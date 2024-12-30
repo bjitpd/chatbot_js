@@ -10,7 +10,7 @@
 
   console.log(paramObj, "OBJECT");
   const chatbotConfig = {
-    botUrl: "https://ainexus-staging.bjitgroup.com/chatapp",
+    botUrl: "http://localhost:5174/",
     width: "450px",
     height: "660px",
     position: "bottom-right",
@@ -36,7 +36,7 @@
   //   window.parent.postMessage({ type: "chatbotClick", data: "Click event data" }, "*");
   // }
   window.addEventListener("message", (event) => {
-    if (event.origin !== "https://ainexus-staging.bjitgroup.com/chatapp") {
+    if (event.origin !== "http://localhost:5174/") {
       return; // Make sure to restrict by origin
     }
     console.log(event, "event");
