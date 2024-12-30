@@ -35,11 +35,18 @@
   // function sendClickEventToParent() {
   //   window.parent.postMessage({ type: "chatbotClick", data: "Click event data" }, "*");
   // }
+  console.log(paramObj?.headerTitle, "headerTitle");
   window.addEventListener("message", (event) => {
     if (event.origin !== "http://localhost:5174") {
       return; // This line might be the cause if origins do not match.
     }
-    console.log(event, "Show Message", event.data, event.data.status);
+    console.log(
+      event,
+      "Show Message",
+      event.data,
+      event.data.status,
+      paramObj?.headerTitle
+    );
     if (event.data.status === "'active'") {
       console.log("Message from chatbot:", event, event.data.message);
     }
