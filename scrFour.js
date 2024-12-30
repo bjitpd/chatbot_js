@@ -47,7 +47,7 @@
   window.addEventListener("message", (event) => {
     console.log(event, "TRIGGERED");
 
-    if (event.origin !== "http://localhost:3090/") {
+    if (event.origin !== "https://ainexus-staging.bjitgroup.com") {
       console.log("NOT VALID");
 
       return; // This line might be the cause if origins do not match.
