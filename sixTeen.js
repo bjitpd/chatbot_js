@@ -24,19 +24,6 @@
     },
   };
 
-  // // Add an event listener to capture any click events within the iframe
-  // window.addEventListener("message", function(event) {
-  //   if (event.data.type === "chatbotClick") {
-  //     console.log("Chatbot click event:", event.data);
-  //   }
-  // });
-
-  // // Function to send click events from the chatbot iframe to the parent window
-  // function sendClickEventToParent() {
-  //   window.parent.postMessage({ type: "chatbotClick", data: "Click event data" }, "*");
-  // }
-  console.log(paramObj?.headerTitle, "headerTitle");
-
   const queryString = new URLSearchParams(chatbotConfig.queryParams).toString();
   const chatbotUrlWithParams = `${chatbotConfig.botUrl}?${queryString}`;
 
@@ -61,18 +48,13 @@
     if (event.origin !== "http://localhost:5174") {
       return; // This line might be the cause if origins do not match.
     }
-    console.log(
-      event,
-      "Show Message",
-      event.data,
-      event.data.status,
-      typeof event.data.status
-    );
+
     if (event.data.status == "active") {
-      console.log("Message from chatbot:", event, event.data.message);
       iframe.style.height = chatbotConfig?.height;
+      iframe.style.width = chatbotConfig?.width;
     } else if (event.data.status == "inactive") {
-      iframe.style.height = "200px";
+      iframe.style.height = "90px";
+      iframe.style.width = "90px";
     }
   });
 
