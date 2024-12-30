@@ -70,9 +70,9 @@
     );
     if (event.data.status == "active") {
       console.log("Message from chatbot:", event, event.data.message);
-      iframe.style.pointerEvents = "none";
-    } else if (event.data.status == "inactive") {
       iframe.style.pointerEvents = "auto";
+    } else if (event.data.status == "inactive") {
+      iframe.style.pointerEvents = "none";
     }
   });
 
