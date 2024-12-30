@@ -36,21 +36,6 @@
   //   window.parent.postMessage({ type: "chatbotClick", data: "Click event data" }, "*");
   // }
   console.log(paramObj?.headerTitle, "headerTitle");
-  window.addEventListener("message", (event) => {
-    if (event.origin !== "http://localhost:5174") {
-      return; // This line might be the cause if origins do not match.
-    }
-    console.log(
-      event,
-      "Show Message",
-      event.data,
-      event.data.status,
-      typeof event.data.status
-    );
-    if (event.data.status == "active") {
-      console.log("Message from chatbot:", event, event.data.message);
-    }
-  });
 
   const queryString = new URLSearchParams(chatbotConfig.queryParams).toString();
   const chatbotUrlWithParams = `${chatbotConfig.botUrl}?${queryString}`;
@@ -72,6 +57,24 @@
     iframe.style.bottom = "0";
     iframe.style.left = "20px";
   }
+  window.addEventListener("message", (event) => {
+    if (event.origin !== "http://localhost:5174") {
+      return; // This line might be the cause if origins do not match.
+    }
+    console.log(
+      event,
+      "Show Message",
+      event.data,
+      event.data.status,
+      typeof event.data.status
+    );
+    if (event.data.status == "active") {
+      console.log("Message from chatbot:", event, event.data.message);
+      iframe.style.pointerEvents = "none";
+    } else if (event.data.status == "inactive") {
+      iframe.style.pointerEvents = "auto";
+    }
+  });
 
   document.body.appendChild(iframe);
 })();
