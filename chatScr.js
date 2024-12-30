@@ -21,6 +21,7 @@
       apiKey: paramObj?.apiKey,
       assistantId: paramObj?.assistantId,
       screenWidth: paramObj?.screenWidth,
+      webUrl: paramObj?.webUrl,
     },
   };
 
