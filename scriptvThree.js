@@ -24,6 +24,18 @@
     },
   };
 
+  // // Add an event listener to capture any click events within the iframe
+  // window.addEventListener("message", function(event) {
+  //   if (event.data.type === "chatbotClick") {
+  //     console.log("Chatbot click event:", event.data);
+  //   }
+  // });
+
+  // // Function to send click events from the chatbot iframe to the parent window
+  // function sendClickEventToParent() {
+  //   window.parent.postMessage({ type: "chatbotClick", data: "Click event data" }, "*");
+  // }
+
   const queryString = new URLSearchParams(chatbotConfig.queryParams).toString();
   const chatbotUrlWithParams = `${chatbotConfig.botUrl}?${queryString}`;
 
@@ -35,7 +47,18 @@
   iframe.style.border = "none";
   iframe.style.zIndex = "9999";
   iframe.style.borderRadius = "18px";
+  iframe.style.pointerEvents = "none";
   iframe.style.allowTransparency = "true";
+
+  // Enable pointer events when the iframe is focused
+  iframe.addEventListener("mouseenter", function () {
+    iframe.style.pointerEvents = "auto";
+  });
+
+  // Disable pointer events when the iframe is not focused
+  iframe.addEventListener("mouseleave", function () {
+    iframe.style.pointerEvents = "none";
+  });
 
   if (chatbotConfig.position === "bottom-right") {
     iframe.style.bottom = "0";
