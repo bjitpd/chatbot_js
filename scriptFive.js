@@ -56,18 +56,7 @@
   iframe.style.border = "none";
   iframe.style.zIndex = "9999";
   iframe.style.borderRadius = "18px";
-  iframe.style.pointerEvents = "none";
   iframe.style.allowTransparency = "true";
-
-  // Enable pointer events when the iframe is focused
-  iframe.addEventListener("mouseenter", function () {
-    iframe.style.pointerEvents = "auto";
-  });
-
-  // Disable pointer events when the iframe is not focused
-  iframe.addEventListener("mouseleave", function () {
-    iframe.style.pointerEvents = "none";
-  });
 
   if (chatbotConfig.position === "bottom-right") {
     iframe.style.bottom = "0";
