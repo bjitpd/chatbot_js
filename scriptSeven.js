@@ -36,10 +36,7 @@
   //   window.parent.postMessage({ type: "chatbotClick", data: "Click event data" }, "*");
   // }
   window.addEventListener("message", (event) => {
-    if (event.origin !== "http://localhost:5174/") {
-      return; // Make sure to restrict by origin
-    }
-    console.log(event, "event");
+    console.log(event, "Show Message");
     if (event.data.status === "active") {
       console.log("Message from chatbot:", event, event.data.message);
     }
