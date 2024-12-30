@@ -45,11 +45,13 @@
     iframe.style.left = "20px";
   }
   window.addEventListener("message", (event) => {
-    console.log(event, "TRIGGERED");
-
     if (event.origin !== "http://localhost:3090") {
+      console.log("NOT VALID");
+
       return; // This line might be the cause if origins do not match.
     }
+    console.log(event, "TRIGGERED");
+
     if (event.data.status == "active") {
       iframe.style.height = chatbotConfig?.height;
       iframe.style.width = chatbotConfig?.width;
