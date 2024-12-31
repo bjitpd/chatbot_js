@@ -10,7 +10,7 @@
 
   console.log(paramObj, "OBJECT");
   const chatbotConfig = {
-    botUrl: "http://localhost:5174",
+    botUrl: "https://ainexus-staging.bjitgroup.com/chatapp",
     width: "450px",
     height: "660px",
     position: "bottom-right",
@@ -48,7 +48,7 @@
   window.addEventListener("message", (event) => {
     console.log(event, "TRIGGERED");
 
-    if (event.origin !== "http://localhost:5174") {
+    if (event.origin !== "https://ainexus-staging.bjitgroup.com") {
       console.log("NOT VALID");
 
       return; // This line might be the cause if origins do not match.
