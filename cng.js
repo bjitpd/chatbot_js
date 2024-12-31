@@ -30,8 +30,8 @@
 
   const iframe = document.createElement("iframe");
   iframe.src = chatbotUrlWithParams;
-  iframe.style.width = chatbotConfig.width;
-  iframe.style.height = chatbotConfig.height;
+  iframe.style.width = "90px";
+  iframe.style.height = "90px";
   iframe.style.position = "fixed";
   iframe.style.border = "none";
   iframe.style.zIndex = "9999";
@@ -48,7 +48,7 @@
   window.addEventListener("message", (event) => {
     console.log(event, "TRIGGERED");
 
-    if (event.origin !== "https://ainexus-staging.bjitgroup.com") {
+    if (event.origin !== "http://localhost:5174") {
       console.log("NOT VALID");
 
       return; // This line might be the cause if origins do not match.
