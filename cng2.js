@@ -10,7 +10,7 @@
 
   console.log(paramObj, "OBJECT");
   const chatbotConfig = {
-    botUrl: "https://ainexus-staging.bjitgroup.com/chatapp",
+    botUrl: "http://localhost:5174",
     width: "450px",
     height: "660px",
     position: "bottom-right",
